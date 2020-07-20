@@ -26,6 +26,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/test")
+    public  String test(){
+        return "Hello world";
+    }
     @GetMapping("/fetchUserAll")
     public List<User> getUSerAll(){
         System.out.println("fetchUser f");

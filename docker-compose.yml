@@ -1,18 +1,42 @@
 version: '3'
 
 services:
-  postgres:
-    build: ./
-    container_name: postgres-sh
-    image: postgres:gtma
+  boot-web:
+    image: test-rest
+      #build:
+      #context: .
+    #dockerfile: Dockerfile
     ports:
-      - "5466:5432"
+      - "8087:8087"
+    restart: always
+    depends_on: # Start the depends_on first
+      - postgres
+    environment:
+      RDS_HOSTNAME: gtma
+      RDS_PORT: 5455
+      RDS_DB_NAME: gtma
+      RDS_USERNAME: postgres
+      RDS_PASSWORD: 123qwe
+    networks:
+      - application-network
+
+  postgres:
+    image: postgres
+    ports:
+      - "5455:5432"
+    restart: always
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123qwe
       - POSTGRES_DB=gtma
     volumes:
       - data:/var/lib/psotgresql/data
-    #command: pg_restore -U postgres  -d gtma   /tmp/gtma_latest.sql
+    networks:
+      - application-network
+
+# Volumes
 volumes:
   data:
+
+networks:
+  application-network:
