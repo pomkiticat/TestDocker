@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  postgres:
+    build: ./
+    container_name: postgres-sh
+    image: postgres:gtma
+    ports:
+      - "5466:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123qwe
+      - POSTGRES_DB=gtma
+    volumes:
+      - data:/var/lib/psotgresql/data
+    #command: pg_restore -U postgres  -d gtma   /tmp/gtma_latest.sql
+volumes:
+  data:
