@@ -32,7 +32,7 @@ public class UserController {
     }
     @GetMapping("/fetchUserAll")
     public List<User> getUSerAll(){
-        System.out.println("fetchUser f");
+       // System.out.println("fetchUser f");
         List<User> users=userService.getUserAll();
 
         return users;
@@ -51,7 +51,7 @@ public class UserController {
 
     @PostMapping("/updateUser/{id}")
     public String updateUser(@PathVariable(value = "id") Integer id,@RequestBody(required = false) User user){
-        System.out.println("ll");
+       // System.out.println("ll");
       String result=userService.updateUser(id,user);
       return  result;
 
