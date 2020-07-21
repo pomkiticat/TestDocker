@@ -28,7 +28,7 @@ public class UserController {
 
     @GetMapping("/test")
     public  String test(){
-        return "Hello world";
+        return "Hello world dddd";
     }
     @GetMapping("/fetchUserAll")
     public List<User> getUSerAll(){
