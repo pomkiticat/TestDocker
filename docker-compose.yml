@@ -1,6 +1,25 @@
 version: '3'
 
 services:
+  boot-web:
+    image: boot
+    #build:
+    #context: .
+    #dockerfile: Dockerfile
+    ports:
+      - "8087:8087"
+    restart: always
+    depends_on: # Start the depends_on first
+      - postgres
+    environment:
+    RDS_HOSTNAME: postgres
+    RDS_PORT: 5455
+    RDS_DB_NAME: gtma
+    RDS_USERNAME: postgres
+    RDS_PASSWORD: 123qwe
+
+    networks:
+      - application-network
   postgres:
     image: postgres
     ports:
@@ -12,24 +31,6 @@ services:
       - POSTGRES_DB=gtma
     volumes:
       - data:/var/lib/psotgresql/data
-    networks:
-      - application-network
-  boot-web:
-    image: boot
-      #build:
-      #context: .
-    #dockerfile: Dockerfile
-    ports:
-      - "8087:8087"
-    restart: always
-    depends_on: # Start the depends_on first
-      - postgres
-    environment:
-      RDS_HOSTNAME: postgres
-      RDS_PORT: 5455
-      RDS_DB_NAME: gtma
-      RDS_USERNAME: postgres
-      RDS_PASSWORD: 123qwe
     networks:
       - application-network
 
