@@ -2,8 +2,8 @@ FROM maven:3.5-jdk-8-alpine
 #WORKDIR /app
 #COPY pom.xml /home/app
 #RUN mvn -f /home/app/pom.xml clean package
-RUN mvn  /app/pom.xml install
-#RUN mvn install
+#RUN mvn  /app/pom.xml install
+RUN mvn install
 
 
 FROM tomcat:9
