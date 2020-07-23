@@ -9,6 +9,6 @@ RUN mvn install
 FROM tomcat:9
 EXPOSE 8087
 #COPY --from=build /home/app/target/*.war /usr/local/tomcat/webapps/
-COPY /app/target/*.war /usr/local/tomcat/webapps/
+COPY /target/*.war /usr/local/tomcat/webapps/
 #COPY target/*.war /usr/local/tomcat/webapps/
 CMD ["catalina.sh","run"]
