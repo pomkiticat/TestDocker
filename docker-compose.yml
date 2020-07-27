@@ -2,6 +2,7 @@ version: '3'
 
 services:
   boot-web:
+    container_name: web-boot
     image: boot
     #build:
     #context: .
@@ -17,17 +18,21 @@ services:
     RDS_DB_NAME: gtma
     RDS_USERNAME: postgres
     RDS_PASSWORD: 123qwe
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=1234
+#      - POSTGRES_DB=10_2
 
     networks:
       - application-network
   postgres:
+    #container_name: postgres-boot
     image: postgres
     ports:
       - "5455:5432"
     restart: always
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=123qwe
+      - POSTGRES_PASSWORD=1233qwe
       - POSTGRES_DB=gtma
     volumes:
       - data:/var/lib/psotgresql/data
