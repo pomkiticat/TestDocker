@@ -84,7 +84,7 @@
                 <version>1.4.10</version>
                 <executions>
                     <execution>
-                        <id>build</id>
+                        <id>default</id>
                         <phase>package</phase>
                         <goals>
                             <goal>build</goal>

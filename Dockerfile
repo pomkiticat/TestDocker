@@ -1,18 +1,17 @@
 FROM maven:3.5-jdk-8-alpine
 WORKDIR /app
 COPY pom.xml /app/
-#RUN mvn -f /home/app/pom.xml clean package
-RUN cd /app/ && mvn package
+#RUN cd /app/ && mvn package
 #RUN mvn install
+#RUN mvn -f /app/pom.xml clean package
+RUN ["mvn", "package"]
+
 #
 #FROM postgres:latest
 #ENV POSTGRES_USER postgres
 #ENV POSTGRES_PASSWORD 123qwe
 #ENV POSTGRES_DB gtma
 
-#FROM maven:3.5-jdk-8-alpine
-#WORKDIR /app
-#COPY pom.xml /app/
 
 
 
