@@ -1,6 +1,7 @@
 FROM maven:3.5-jdk-8-alpine
 WORKDIR /app
 COPY pom.xml /app/
+COPY Dockerfile /app/
 #RUN cd /app/ && mvn package
 #RUN mvn install
 #RUN mvn -f /app/pom.xml clean package
