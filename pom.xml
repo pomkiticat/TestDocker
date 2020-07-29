@@ -110,7 +110,7 @@
                 <version>1.4.10</version>
                 <executions>
                     <execution>
-                        <id>default</id>
+                        <id>build</id>
                         <phase>package</phase>
                         <goals>
                             <goal>build</goal>
@@ -123,6 +123,7 @@
                     <tag>${project.version}</tag>
 <!--                    <contextDirectory>/</contextDirectory>-->
                     <skipDockerInfo>true</skipDockerInfo>
+                    <pullNewerImage>false</pullNewerImage>
                 </configuration>
             </plugin>
             <!--docker-->
